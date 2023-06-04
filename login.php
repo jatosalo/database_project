@@ -11,7 +11,7 @@
 <body>
 	<div id = "form">
 		<div id = "form_topic"><h1>Confirm Identity</h1></div>
-		<form name = "form" method = "POST">
+		<form name = "form" action = "login_check.php" method = "POST">
 			<label> Username: </label>
 			<input type = "text" id = "user" name = "user"><br><br>
 			<label> Password: </label>
