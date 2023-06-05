@@ -35,15 +35,10 @@ if EVENT_NAME == 'push':
     REF_NAME = data.get('ref_name')
     PUSHER = event.get('pusher').get('name')
     head_commit = event.get('head_commit')
-    # HEAD_AUTHOR = head_commit.get('author').get('username')
-    # HEAD_COMMITTER = head_commit.get('committer').get('username')
-    # HEAD_MESSAGE = head_commit.get('message')
 
     commits = event.get('commits')
     COMMIT_COUNT = len(commits)
     fields = [{'name': commit.get('message'), 'value': ''} for commit in commits]
-    # author = commit.get('author').get('username')
-    # committer = commit.get('committer').get('username')
 
     embed['title'] = f'[ PUSH ] {REPOSITORY}'
     embed[
@@ -54,11 +49,7 @@ if EVENT_NAME == 'push':
 
 if embed != {}:
     token = os.environ.get('token')
-    if token is None:
-        raise Exception('you need to set discord bot token')
     users = config.get('user', [])
-    if users == []:
-        raise Exception('you need to add user id to list')
     channels = get_channel_ids(users, token)
     for channel in channels:
         requests.post(
