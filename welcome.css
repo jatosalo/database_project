@@ -1,0 +1,35 @@
+body {
+  background-color: gray;
+  color: white;
+  font-family: "Goldman";
+}
+
+.btn{
+  border: 0;
+  background-color:#555555;
+  color:#fff;
+}
+
+.btn:hover{
+  border: 0;
+  background-color:#A5A5A5;
+  color:#fff;
+}
+
+.btn:active{
+  border: 0;
+  background-color:#353535;
+  color:#fff;
+}
+
+#welcome_title{
+  text-align: center;
+}
+
+#btns{
+  width:80%;
+  padding:0px;
+  outline:0px;
+  margin-left:43%;
+  margin-right:43%;
+}
