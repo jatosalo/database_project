@@ -1,0 +1,35 @@
+body {
+  background-color: gray;
+  color: white;
+  font-family: "Goldman";
+}
+
+#btn_search{
+  border: 0;
+  background-color:#555555;
+  color:#fff;
+}
+
+#btn_search:hover{
+  border: 0;
+  background-color:#A5A5A5;
+  color:#fff;
+}
+
+#btn_search:active{
+  border: 0;
+  background-color:#353535;
+  color:#fff;
+}
+
+
+
+input {
+  position: absolute;
+  left:125px;
+}
+
+select {
+  position: absolute;
+  left:125px;
+}
