@@ -1,3 +1,6 @@
+<?php
+	include("connection.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +33,6 @@
 	</style>
 </head>
 <body>
-	
 	<div id = "form">
 		<div id = "form_topic"><h1>Document Searching</h1></div>
 		<form name = "form" method = "POST">
@@ -46,18 +48,18 @@
 			<input type = "text" id = "doc_safe_level" name = "doc_safe_level" style="width: 175px;"><br><br>
 			<label> Sort By: </label>
 			<select id = "doc_sort_depends" name = "doc_sort_depends" style="width: 182px;  height: 20px">
-				<option value="by_id_asc">ID</option>
-        		<option value="by_user_asc">User</option>
-        		<option value="by_date_asc">Date</option>
-        		<option value="by_site_asc">Site</option>
-        		<option value="by_level_asc">Level</option>
-        		<option value="by_liked_asc">Liked</option>
-				<option value="by_id_desc">ID (desc)</option>
-        		<option value="by_user_desc">User (desc)</option>
-        		<option value="by_date_desc">Date (desc)</option>
-        		<option value="by_site_desc">Site (desc)</option>
-        		<option value="by_level_desc">Level (desc)</option>
-        		<option value="by_liked_desc">Liked (desc)</option>
+				<option value="id asc">ID</option>
+        		<option value="title asc">User</option>
+        		<option value="post_date asc">Date</option>
+        		<option value="sid asc">Site</option>
+        		<option value="safe_level asc">Level</option>
+        		<option value="likes asc">Liked</option>
+				<option value="id desc">ID (desc)</option>
+        		<option value="title desc">User (desc)</option>
+        		<option value="post_date desc">Date (desc)</option>
+        		<option value="sid desc">Site (desc)</option>
+        		<option value="safe_level desc">Level (desc)</option>
+        		<option value="likes desc">Liked (desc)</option>
 			</select><br><br>
 			<div align = "center">
 			<input type = "submit" id = "btn_search" value = "Search" name = "submit" style="width:182px;height:40px; font-family: 'Goldman';">
@@ -80,16 +82,63 @@
     		</tr>
 		</thead>
 		<tbody>
-			<tr>
-	    		<th>1</th>
-      			<th>2</th>
-      			<th>3</th>
-      			<th>4</th>
-      			<th>5</th>
-      			<th>6</th>
-      			<th>7</th>
-      			<th>8</th>
-			</tr>
+			<?php
+				if(isset($_POST['submit'])){
+					$doc_id = $_POST['doc_id'];
+					$doc_name = $_POST['doc_name'];
+					$doc_pdate = $_POST['doc_pdate'];
+					$doc_puser = $_POST['doc_puser'];
+					$doc_safe_level = $_POST['doc_safe_level'];
+					$doc_sort_depends = $_POST['doc_sort_depends'];
+					$doc_count = 0;
+					$sql_cmd = "select id,title,safe_level,uid,post_date,sid,count(select * from liked_d where liked_d.did = document.id) as likes,content from document where ";
+					if($doc_id != ""){
+						$sql_cmd = $sql_cmd . "id = '$doc_id'";
+					}
+					if($doc_name != ""){
+						$sql_cmd = $sql_cmd . " and title = '$doc_name'";
+					}
+					if($doc_pdate != ""){
+						$sql_cmd = $sql_cmd . " and post_date = '$doc_pdate'";
+					}
+					if($doc_puser != ""){
+						$sql_cmd = $sql_cmd . " and uid = '$doc_puser'";
+					}
+					if($doc_safe_level != ""){
+						$sql_cmd = $sql_cmd . " and safe_level = '$doc_safe_level' ";
+					}
+
+					if($doc_sort_depends != ""){
+						$sql_cmd = $sql_cmd . "order by $doc_id , id asc";
+					}
+					else{
+						$sql_cmd = $sql_cmd . "order by id";
+					}
+
+					$result = mysqli_query($conn,$sql_cmd);
+
+					if(mysqli_num_rows($result) > 0)
+					{
+						foreach($result as $row)
+						{
+					?>
+					<tr>
+						<th><?php echo $row['id']; ?></th> 
+						<th><?php echo $row['title']; ?></th> 
+						<th><?php echo $row['safe_level']; ?></th>
+						<th><?php echo $row['uid']; ?></th> 
+						<th><?php echo $row['post_date']; ?></th> 
+						<th><?php echo $row['sid']; ?></th>
+						<th><?php echo $row['likes']; ?></th> 
+						<th><?php echo "<a href='";
+								echo $row["content"];
+								echo "'>click me</a>"; ?></th> 
+					</tr>
+					<?php
+						}
+					}
+				}
+			?>
 		</tbody>
 	</table>
 	
