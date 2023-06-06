@@ -1,6 +1,7 @@
 <?php
 	$user_account = "jatosalo";
-	//$user_account = $_COOKIE['u_acc'];
+	//session_start();
+	//$user_account = $_SESSION["u_acc"];
 	//get user account
 ?>
 <!DOCTYPE html>
@@ -17,12 +18,28 @@
 	?>
 	<div id = "btns">
 	<form action="search_document.php">
-    	<input class = "btn" type="submit" value="Document" style="width:200px;height:40px; font-family: 'Goldman';">
+    	<input class = "btn" type="submit" value="Search Document" style="width:200px;height:40px; font-family: 'Goldman';">
 	</form>
 	<br>
 	<form action="search_site.php">
-    	<input class = "btn" type="submit" value="Site" style="width:200px;height:40px; font-family: 'Goldman';">
+    	<input class = "btn" type="submit" value="Search Site" style="width:200px;height:40px; font-family: 'Goldman';">
 	</form>
+
+	<!--
+		TODO:sql check
+		if this user is adminsrator, do below.
+	-->
+	<br>
+	<form action="create_document.php">
+    	<input class = "btn" type="submit" value="Create Document" style="width:200px;height:40px; font-family: 'Goldman';">
+	</form>
+	<br>
+	<form action="promote.php">
+    	<input class = "btn" type="submit" value="Promote" style="width:200px;height:40px; font-family: 'Goldman';">
+	</form>
+
+
+
 	</div>
 </body>
 </html>
