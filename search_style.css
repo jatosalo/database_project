@@ -4,32 +4,65 @@ body {
   font-family: "Goldman";
 }
 
-#btn_search{
-  border: 0;
-  background-color:#555555;
-  color:#fff;
+table, th, td {
+  border-collapse: collapse;
+  border: 1px solid rgb(0, 0, 0);
 }
 
-#btn_search:hover{
-  border: 0;
-  background-color:#A5A5A5;
-  color:#fff;
+table {
+  width: 80%;
+  padding: 0px;
+  outline: 0px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 150px;
 }
 
-#btn_search:active{
-  border: 0;
-  background-color:#353535;
-  color:#fff;
+th, td {
+  color: rgb(180, 180, 180);
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 40%);
+  line-height: 20px;
 }
 
+th:hover, td:hover {
+  color: white;
+}
 
+#btn_search {
+  border: 0;
+  background-color: #555555;
+  color: #fff;
+  width: 182px;
+  height: 40px;
+  font-family: 'Goldman';
+}
+
+#btn_search:hover {
+  border: 0;
+  background-color: #A5A5A5;
+  color: #fff;
+}
+
+#btn_search:active {
+  border: 0;
+  background-color: #353535;
+  color: #fff;
+}
 
 input {
   position: absolute;
-  left:125px;
+  left: 125px;
+}
+
+input:not([type='submit']) {
+  width: 175px;
 }
 
 select {
   position: absolute;
-  left:125px;
+  left: 125px;
+  width: 182px;
+  height: 20px;
 }
