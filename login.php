@@ -20,6 +20,12 @@
 			<input type = "submit" id = "btn_login" value = "Login" name = "submit" style="width:200px;height:40px; font-family: 'Goldman';">
 			</div>
 		</form>
+		<br>
+		<form name = "form2" action = "create_account.php" method = "POST">
+			<div align = "center">
+			<input type = "submit" id = "btn_create" value = "Create Account" name = "submit2" style="width:200px;height:40px; font-family: 'Goldman';">
+			</div>
+		</form>
 	</div>
 </body>
 </html>
