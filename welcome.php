@@ -16,7 +16,7 @@
 	<?php
 		echo "<h1 id = 'welcome_title'>Welcome: $user_account</h1>";
 	?>
-	<div id = "btns">
+	<div align = "center">
 	<form action="search_document.php">
     	<input class = "btn" type="submit" value="Search Document" style="width:200px;height:40px; font-family: 'Goldman';">
 	</form>
@@ -37,9 +37,6 @@
 	<form action="promote.php">
     	<input class = "btn" type="submit" value="Promote" style="width:200px;height:40px; font-family: 'Goldman';">
 	</form>
-
-
-
 	</div>
 </body>
 </html>
