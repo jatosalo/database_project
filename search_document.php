@@ -135,7 +135,7 @@
 							<td><?= $document['post_date'] ?></td>
 							<td><?= $document['site_name'] ?></td>
 							<td><?= $document['likes'] ?></td>
-							<td><a href="<?= $document['content'] ?>">click me</a></td>
+							<td><a href="document.php?id=<?= $document['document_id'] ?>">click me</a></td>
 						</tr>
 					<?php
 					}
