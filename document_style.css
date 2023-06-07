@@ -1,0 +1,68 @@
+body {
+  background-color: gray;
+  color: white;
+  font-family: "Goldman";
+}
+
+#img1 {
+  position: absolute;
+  top: 25%;
+  right: 30%;
+}
+
+#btn_login{
+  border: 0;
+  background-color:#555555;
+  color:#fff;
+  font-size: 32px;
+}
+
+#btn_login:hover{
+  border: 0;
+  background-color:#A5A5A5;
+  color:#fff;
+  font-size: 32px;
+}
+
+#btn_login:active{
+  border: 0;
+  background-color:#353535;
+  color:#fff;
+  font-size: 32px;
+}
+
+#btn_sent{
+  border: 0;
+  background-color:#555555;
+  color:#fff;
+}
+
+#btn_sent:hover{
+  border: 0;
+  background-color:#A5A5A5;
+  color:#fff;
+}
+
+#btn_sent:active{
+  border: 0;
+  background-color:#353535;
+  color:#fff;
+}
+
+#form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -300px 0 0 -200px;
+}
+
+#message {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  right:10%;
+}
+
+#form_topic {
+  text-align: center;
+}
