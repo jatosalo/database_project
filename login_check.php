@@ -8,15 +8,18 @@
 	$location = 'login.php';
 	if(!is_null($account) && !is_null($password))
 	{
-		$user_id = query("select user_id from user where account='$account' and password='$password'");
-		$user_id = fetch_all($user_id)[0]['user_id'] ?? null;
-		if(is_null($user_id))
+		$user_info = query("select user_id, name from user where account='$account' and password='$password'");
+		$user_info = fetch_all($user_info);
+		if(count($user_info) == 0)
 		{
 			$_SESSION['message'] = 'Incorrect Account or Password!';
 		}
 		else
 		{
+			$user_id = $user_info[0]['user_id'];
+			$name = $user_info[0]['name'];
 			$_SESSION['user_id'] = $user_id;
+			$_SESSION['name'] = $name;
 			$location = 'welcome.php';
 		}
 	}

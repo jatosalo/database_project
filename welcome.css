@@ -4,24 +4,27 @@ body {
   font-family: "Goldman";
 }
 
-.btn{
+input[type='submit'] {
   border: 0;
-  background-color:#555555;
-  color:#fff;
+  background-color: #555555;
+  color: #fff;
+  width: 200px;
+  height: 40px;
+  font-family: 'Goldman';
 }
 
-.btn:hover{
+input[type='submit']:hover {
   border: 0;
-  background-color:#A5A5A5;
-  color:#fff;
+  background-color: #A5A5A5;
+  color: #fff;
 }
 
-.btn:active{
+input[type='submit']:active {
   border: 0;
-  background-color:#353535;
-  color:#fff;
+  background-color: #353535;
+  color: #fff;
 }
 
-#welcome_title{
+h1 {
   text-align: center;
 }
