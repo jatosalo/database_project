@@ -4,6 +4,18 @@
 
 	$user_id = $_SESSION['user_id'] ?? null;
 	$name = $_SESSION['name'] ?? null;
+	if(is_null($user_id) || is_null($name))
+	{
+		header('Location: login.php');
+		exit();
+	}
+	$count = query("select count(*) as count from administrator where user_id = '$user_id'");
+	$count = fetch_all($count)[0]['count'];
+	if($count == 0)
+	{
+		header('Location: welcome.php');
+		exit();
+	}
 
 	$document_id = $_POST['document_id'] ?? null;
 	$title = $_POST['title'] ?? null;

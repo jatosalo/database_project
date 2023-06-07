@@ -3,7 +3,19 @@
 	include("connection.php");
 
 	$user_id = $_SESSION['user_id'] ?? null;
+	$name = $_SESSION['name'] ?? null;
+	if(is_null($user_id) || is_null($name))
+	{
+		header('Location: login.php');
+		exit();
+	}
+
 	$id = $_GET['id'] ?? null;
+	if(is_null($id))
+	{
+		header('Location: search_document.php');
+		exit();
+	}
 
 	$msg = $_POST['msg'] ?? null;
 	if(!is_null($msg) && $msg != '')

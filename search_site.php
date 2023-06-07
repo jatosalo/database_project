@@ -1,5 +1,14 @@
 <?php
+	session_start();
 	include("connection.php");
+
+	$user_id = $_SESSION['user_id'] ?? null;
+	$name = $_SESSION['name'] ?? null;
+	if(is_null($user_id) || is_null($name))
+	{
+		header('Location: login.php');
+		exit();
+	}
 
 	$site_id = $_POST['site_id'] ?? null;
 	$name = $_POST['name'] ?? null;
