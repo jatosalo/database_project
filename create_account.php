@@ -18,6 +18,9 @@
 			try
 			{
 				query("insert into user (account, name, password) values ('$account', '$name', '$password')");
+				$user_id = query("select user_id from user where account = '$account'");
+				$user_id = fetch_all($user_id)[0]['user_id'];
+				query("insert into common_user values ('$user_id')");
 				header("Location: login.php");
 				exit();
 			}
