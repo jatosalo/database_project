@@ -30,6 +30,10 @@ th:hover, td:hover {
   color: white;
 }
 
+th span {
+  cursor: pointer;
+}
+
 #btn_search {
   border: 0;
   background-color: #555555;

@@ -1,42 +1,68 @@
 <?php
-	//include("connection.php");
-	if(isset($_POST['submit'])){
-		if($_POST['pass'] != $_POST['pass_check']){
-			echo '<script>
-				window.location.href = "create_account.php";
-				alert("Please Check Password Again!");
-				</script>';
+	include("connection.php");
+
+	$account = $_POST['account'] ?? null;
+	$name = $_POST['name'] ?? null;
+	$password = $_POST['password'] ?? null;
+	$password_check = $_POST['password_check'] ?? null;
+
+	$message = '';
+	if(!is_null($account))
+	{
+		if($password != $password_check)
+		{
+			$message = 'Please Check Password Again!';
 		}
-		else{
-			/*
-				TODO : add common user, parameter as below.
-				$_POST['user']
-				$_POST['pass']
-			*/
+		else
+		{
+			try
+			{
+				query("insert into user (account, name, password) values ('$account', '$name', '$password')");
+				header("Location: login.php");
+				exit();
+			}
+			catch(Exception $e)
+			{
+				$message = 'Account Already Exists!';
+				$account = '';
+			}
 		}
 	}
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="create_account_style.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
-</head>
-<body>
-	<div id = "form">
-		<div id = "form_topic"><h1>Confirm Identity</h1></div>
-		<form name = "form" action = "create_account.php" method = "POST">
-			<label> Username: </label>
-			<input type = "text" id = "user" name = "user"><br><br>
-			<label> Password: </label>
-			<input type = "password" id = "pass" name = "pass"><br><br>
-			<label> Typeagain: </label>
-			<input type = "password" id = "pass_check" name = "pass_check"><br><br>
-			<div align = "center">
-			<input type = "submit" id = "btn_login" value = "Create" name = "submit" style="width:200px;height:40px; font-family: 'Goldman';">
-			</div>
-		</form>
-	</div>
-</body>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="create_account_style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
+	</head>
+	<body>
+		<div id="form">
+			<h1>Create Account</h1>
+			<span><?= $message ?></span>
+			<form action="create_account.php" method = "post">
+				<table>
+					<tr>
+						<td><label>Account:</label></td>
+						<td><input type="text" name="account" required value="<?= $account ?>"></td>
+					</tr>
+					<tr>
+						<td><label>Name:</label></td>
+						<td><input type="text" name="name" required value="<?= $name ?>"></td>
+					</tr>
+					<tr>
+						<td><label>Password:</label></td>
+						<td><input type="password" name="password" required></td>
+					</tr>
+					<tr>
+						<td><label>Typeagain:</label></td>
+						<td><input type="password" name="password_check" required></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="Create"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
 </html>

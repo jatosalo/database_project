@@ -1,22 +1,25 @@
 <?php
+	session_start();
 	include("connection.php");
-	if(isset($_POST['submit'])){
-		$user_account = $_POST['user'];
-		$password = $_POST['pass'];
-		$sql = "select account,password from user where account = '$user_account' and password = '$password'";
-		$result = mysqli_query($conn,$sql);
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-		$count = mysqli_num_rows($result);
-		if($count == 1){
-			session_start();
-			$_SESSION["u_acc"] = $user_account;
-			header("Location:welcome.php");
+
+	$account = $_POST['account'] ?? null;
+	$password = $_POST['password'] ?? null;
+
+	$location = 'login.php';
+	if(!is_null($account) && !is_null($password))
+	{
+		$user_id = query("select user_id from user where account='$account' and password='$password'");
+		$user_id = fetch_all($user_id)[0]['user_id'] ?? null;
+		if(is_null($user_id))
+		{
+			$_SESSION['message'] = 'Incorrect Account or Password!';
 		}
-		else{
-			echo '<script>
-				window.location.href = "login.php";
-				alert("Login Failed!");
-				</script>';
+		else
+		{
+			$_SESSION['user_id'] = $user_id;
+			$location = 'welcome.php';
 		}
 	}
+	header("Location: $location");
+	exit();
 ?>

@@ -4,7 +4,7 @@ body {
   font-family: "Goldman";
 }
 
-input[type="submit"] {
+input[type='submit'] {
   border: 0;
   background-color: #555555;
   color: #fff;
@@ -13,13 +13,13 @@ input[type="submit"] {
   font-family: 'Goldman';
 }
 
-input[type="submit"]:hover {
+input[type='submit']:hover {
   border: 0;
   background-color: #A5A5A5;
   color: #fff;
 }
 
-input[type="submit"]:active {
+input[type='submit']:active {
   border: 0;
   background-color: #353535;
   color: #fff;
@@ -35,6 +35,7 @@ input[type="submit"]:active {
 h1 {
   text-align: center;
 }
+
 
 table {
   border-spacing: 0 10px;

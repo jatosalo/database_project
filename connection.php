@@ -1,13 +1,18 @@
 <?php
-	//check these
-	$servername = "127.0.0.1";
-	$username = "root";
-	$password = "";
-	$db_name = "scp";
+	$connect = new mysqli("127.0.0.1", "root", "", "scp");
 
-	$conn = new mysqli($servername,$username,$password,$db_name);
+	if($connect->connect_error){
+		die("Connection failed" . $connect->connect_error);
+	}
 
-	if($conn->connect_error){
-		die("Connection failed".$conn->connect_error);
+	function query($sql_cmd)
+	{
+		global $connect;
+		return mysqli_query($connect, $sql_cmd);
+	}
+
+	function fetch_all($result)
+	{
+		return mysqli_fetch_all($result, MYSQLI_ASSOC);
 	}
 ?>
