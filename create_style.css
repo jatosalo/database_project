@@ -30,7 +30,7 @@ th:hover, td:hover {
   color: white;
 }
 
-#btn_create {
+input[type='submit'] {
   border: 0;
   background-color: #555555;
   color: #fff;
@@ -39,13 +39,13 @@ th:hover, td:hover {
   font-family: 'Goldman';
 }
 
-#btn_create:hover {
+input[type='submit']:hover {
   border: 0;
   background-color: #A5A5A5;
   color: #fff;
 }
 
-#btn_create:active {
+input[type='submit']:active {
   border: 0;
   background-color: #353535;
   color: #fff;

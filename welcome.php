@@ -21,6 +21,9 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
 	</head>
 	<body>
+		<form action="logout.php" method="post">
+			<input class="nav" type="submit" value="Logout" style="float: right; position: static;">
+		</form>
 		<br><br>
 		<h1>Welcome: <?= $name ?></h1>
 		<div align="center">

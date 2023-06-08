@@ -23,7 +23,7 @@
 		'poster_name' => 'asc',
 		'post_date' => 'asc',
 		'manage_site_id' => 'asc',
-		'likes' => 'asc'
+		// 'likes' => 'asc'
 	);
 	$symbols = array(
 		'document_id' => '',
@@ -32,14 +32,13 @@
 		'poster_name' => '',
 		'post_date' => '',
 		'manage_site_id' => '',
-		'likes' => ''
+		// 'likes' => ''
 	);
 	$sort_parameters = explode(' ', $sort);
 	$sorts[$sort_parameters[0]] = $sort_parameters[1] == 'asc' ? 'desc' : 'asc';
 	$symbols[$sort_parameters[0]] = $sort_parameters[1] == 'asc' ? ' ▲' : ' ▼';
 
-	$sql_cmd = "select document_id, title, content, safe_level, post_date, user.name as poster_name, site.name as site_name, ".
-			   "(select count(*) from like_document where document.document_id = like_document.document_id) as likes ".
+	$sql_cmd = "select document_id, title, content, safe_level, post_date, user.name as poster_name, site.name as site_name ".
 			   "from document, user, site ".
 			   "where document.poster_id = user.user_id and document.manage_site_id = site.site_id";
 	if(!is_null($document_id) && $document_id != ''){
@@ -78,6 +77,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
 	</head>
 	<body>
+		<?php include('nav.php'); ?>
 		<div>
 			<div>
 				<h1>Document Searching</h1>
@@ -125,9 +125,9 @@
 					<th width="150px">
 						<span onclick="resort('manage_site_id <?= $sorts['manage_site_id'] ?>')">Placed Site<?= $symbols['manage_site_id'] ?></span>
 					</th>
-					<th width="75px">
+					<!-- <th width="75px">
 						<span onclick="resort('likes <?= $sorts['likes'] ?>')">Like<?= $symbols['likes'] ?></span>
-					</th>
+					</th> -->
 					<th width="50px">Detail</th>
 				</tr>
 			</thead>
@@ -143,7 +143,7 @@
 							<td><?= $document['poster_name'] ?></td>
 							<td><?= $document['post_date'] ?></td>
 							<td><?= $document['site_name'] ?></td>
-							<td><?= $document['likes'] ?></td>
+							<!-- <td><?= $document['likes'] ?></td> -->
 							<td><a href="document.php?id=<?= $document['document_id'] ?>">click me</a></td>
 						</tr>
 					<?php

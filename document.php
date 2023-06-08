@@ -38,11 +38,12 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
 </head>
 <body>
+	<?php include('nav.php'); ?>
 	<!-- <div id="img1">
 		<img id="img_likes" src="images/like.png" width="40px" height="40px" onclick="changeImage()">
 	</div> -->
 	<div id="form">
-		<form action="http://scp-zh-tr.wikidot.com/scp-<?= $id ?>" method="post"></form>
+		<form action="http://scp-zh-tr.wikidot.com/scp-<?= $id ?>" method="post">
 			<div align="center">
 				<input type="submit" id="btn_login" value = "SCP-<?= $id ?>">
 				<br>

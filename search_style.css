@@ -34,7 +34,7 @@ th span {
   cursor: pointer;
 }
 
-#btn_search {
+input[type='submit'] {
   border: 0;
   background-color: #555555;
   color: #fff;
@@ -43,13 +43,13 @@ th span {
   font-family: 'Goldman';
 }
 
-#btn_search:hover {
+input[type='submit']:hover {
   border: 0;
   background-color: #A5A5A5;
   color: #fff;
 }
 
-#btn_search:active {
+input[type='submit']:active {
   border: 0;
   background-color: #353535;
   color: #fff;

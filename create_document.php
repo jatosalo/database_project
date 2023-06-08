@@ -52,6 +52,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
 	</head>
 	<body>
+		<?php include('nav.php'); ?>
 		<div>
 			<h1>Document Creating</h1>
 			<span style="color: green"><?= $success_message ?></span>
@@ -74,7 +75,7 @@
 				<input type="text" name="content" value="<?= $content ?>" required>
 				<br><br>
 				<div align="center">
-					<input type="submit" id="btn_create" value="Create">
+					<input type="submit" value="Create">
 				</div>
 			</form>
 		</div>

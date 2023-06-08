@@ -35,7 +35,7 @@ body {
   font-size: 32px;
 }
 
-#btn_sent {
+#btn_sent, .nav {
   border: 0;
   background-color: #555555;
   color: #fff;
@@ -44,13 +44,13 @@ body {
   font-family: 'Goldman';
 }
 
-#btn_sent:hover {
+#btn_sent:hover, .nav:hover {
   border: 0;
   background-color: #A5A5A5;
   color: #fff;
 }
 
-#btn_sent:active {
+#btn_sent:active, .nav:active {
   border: 0;
   background-color: #353535;
   color: #fff;

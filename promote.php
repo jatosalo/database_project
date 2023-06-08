@@ -65,6 +65,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
 	</head>
 	<body>
+		<?php include('nav.php'); ?>
 		<div>
 			<div>
 				<h1>Common User Promote</h1>

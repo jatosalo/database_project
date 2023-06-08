@@ -68,6 +68,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Goldman">
 	</head>
 	<body>
+		<?php include('nav.php'); ?>
 		<div>
 			<div>
 				<h1>Site Searching</h1>
@@ -89,7 +90,7 @@
 				<input type="text" name="location" value="<?= $location ?>">
 				<br><br>
 				<div align="center">
-					<input type="submit" id="btn_search" value="Search">
+					<input type="submit" value="Search">
 				</div>
 			</form>
 		</div>
