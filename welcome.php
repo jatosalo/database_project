@@ -43,6 +43,10 @@
 					<input type="submit" value="Create Document">
 				</form>
 				<br>
+				<form action="create_site.php">
+					<input type="submit" value="Create Site">
+				</form>
+				<br>
 				<form action="promote.php">
 					<input type="submit" value="Promote">
 				</form>
